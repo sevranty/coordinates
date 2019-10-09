@@ -35,3 +35,4 @@ with open('result.csv', 'w', encoding='utf-8') as fp:
     writer.writerow(['x'] + ['y_(%s)' % f for f in files])
     writer.writerows(sorted(redult_set, key=lambda s: s[0]))
     logger.log(20, 'Finished writing to file %s' % fp.name)
+
