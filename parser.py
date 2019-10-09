@@ -28,7 +28,7 @@ for n, k in enumerate(x_y):
     for coords in x_y[k]:
         result_dict[coords['x']][n] = coords['y']
 
-redult_set = [(k, ) + tuple(v) for k, v in result_dict.items()]
+redult_set = [(k,) + tuple(v) for k, v in result_dict.items()]
 
 with open('result.csv', 'w', encoding='utf-8') as fp:
     writer = csv.writer(fp, dialect='excel', lineterminator='\n')
