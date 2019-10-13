@@ -23,18 +23,27 @@ def parse_files(path):
 
 
 x, x_y = parse_files('resources')
-print()
-print()
 
 result_dict = {i: [None] * len(x_y) for i in x}
+
 files = list()
-# print('========================')
-# print('x     = ', x)
-# print('x_y   = ', x_y)
-# print('files = ', x_y)
-# print('files = ', x_y.keys())
-# list(x_y.keys())
-# print('========================')
+file_list = []
+numbers_in_file = []
+
+print('========================================================================')
+print('x        = ', x)
+print('x_y      = ', x_y)
+print('x_y.keys = ', x_y.keys())
+print('========================================================================')
+
+for file in x_y:
+    file_list.append(file)
+    numbers_in_file = x_y[file]
+    print('FILE=(', file, ') // NUMBERS_IN_FILE(', file, ')=', numbers_in_file)
+
+print('========================================================================')
+print('file_list = ', file_list)
+print('========================================================================')
 
 for n, k in enumerate(x_y):
     files.append(k)
@@ -63,16 +72,11 @@ trs = matrixtranspose(sorted(result_set, key=lambda s: s[0]))  # trs == transpos
 fig = go.Figure()
 
 for row in trs[1:]:
-    # Обрабатываем все строчки в списке кроме 0 заголовка
-    # print('| {}'.format(row))
-    # print('row = ',len(row), ' // ', row)
-    # print('trs = ',len(trs[0]), ' // ', trs[0])
     fig.add_trace(go.Scatter(
         y=row,
         x=trs[0],
         mode='lines',
         name='lines'
-        # name=x_y.keys()
     ))
 
 # Edit the layout
