@@ -68,6 +68,7 @@ def matrixtranspose(matrix):
 
 trs = matrixtranspose(sorted(result_set, key=lambda s: s[0]))  # trs == transpose_result_set
 
+print('========================================================================')
 # Create traces
 fig = go.Figure()
 
@@ -81,7 +82,7 @@ for row in trs[1:]:
 
 # Edit the layout
 fig.update_layout(title='Интенсивность спектров испускания',
-                  xaxis_title='Интенсивность, отн ед',
-                  yaxis_title='Длина волны, нм')
+                  xaxis_title='Длина волны, нм (λ)',
+                  yaxis_title='Интенсивность, отн.ед.')
 
 fig.show()
